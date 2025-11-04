@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="a949483093853610a1a332edfaba10bb" label="Solicitud de Compra" max_length="40" name="x_58872_needit_solicitud_de_compra" type="collection">
+        <element choice="1" label="Departamento" max_length="40" name="departamento" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="RH" sequence="2" value="rh"/>
+                <element inactive_on_update="false" label="IT" sequence="0" value="it"/>
+                <element inactive_on_update="false" label="Finanzas" sequence="3" value="finanzas"/>
+                <element inactive_on_update="false" label="Ventas" sequence="1" value="ventas"/>
+            </choice>
+        </element>
+        <element label="Moneda" max_length="40" name="moneda" type="string"/>
+        <element label="¿Requiere aprobación especial?" max_length="40" name="requiere_aprobacion_especial" type="boolean"/>
+        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Número de solicitud" max_length="40" name="number" read_only="true" type="string"/>
+        <element label="Fecha requerida de entrega" max_length="40" name="fecha_requerida_de_entrega" type="glide_date"/>
+        <element label="Proveedor sugerido" max_length="40" name="proveedor_sugerido" reference="core_company" type="reference"/>
+        <element choice="1" label="Prioridad " max_length="40" name="prioridad" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Baja" sequence="0" value="baja"/>
+                <element inactive_on_update="false" label="Urgente" sequence="3" value="urgente"/>
+                <element inactive_on_update="false" label="Media" sequence="1" value="media"/>
+                <element inactive_on_update="false" label="Alta" sequence="2" value="alta"/>
+            </choice>
+        </element>
+        <element label="Precio unitario estimado" max_length="20" name="precio_unitario_estimado" type="decimal"/>
+        <element label="Cantidad solicitada" max_length="40" name="cantidad_solicitada" type="integer"/>
+        <element default="javascript:gs.getUserID();" dynamic_default_value="bdcb83a85f220100a9ad2572f2b4773d" label="Solicitante" max_length="40" name="solicitante" reference="sys_user" type="reference" use_dynamic_default="true"/>
+        <element default="javascript:gs.nowDateTime()" dynamic_default_value="79cb83a85f220100a9ad2572f2b4773c" label="Fecha de solicitud" max_length="40" name="fecha_de_solicitud" read_only="true" type="glide_date_time" use_dynamic_default="true"/>
+        <element choice="1" label="Tipo de compra" max_length="40" name="tipo_de_compra" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Software" sequence="2" value="software"/>
+                <element inactive_on_update="false" label="Servicio" sequence="1" value="servicio"/>
+                <element inactive_on_update="false" label="Material" sequence="0" value="material"/>
+            </choice>
+        </element>
+        <element label="Descripción del artículo" max_length="40" name="descripcion_del_articulo" type="string"/>
+    </element>
+</database>
