@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field>cantidad_solicitada</field>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>Solicitud de compra - Monto total 1</name>
+        <order/>
+        <script><![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+   if (isLoading || newValue === '') {
+      return;
+   }
+
+   var precio = g_form.getValue('precio_unitario_estimado');
+   precio = parseFloat(precio.replace(/,/g, ''));
+   var cantidad = parseFloat(newValue);
+   var resultado=0.0;
+
+   if(precio != ''){
+	resultado = precio * cantidad;
+	g_form.setValue('monto_total_estimado', resultado);
+   }
+   
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-11-04 18:10:23</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>15e70d45930db610a1a332edfaba1095</sys_id>
+        <sys_mod_count>9</sys_mod_count>
+        <sys_name>Solicitud de compra - Monto total 1</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_update_name>sys_script_client_15e70d45930db610a1a332edfaba1095</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-11-04 18:23:58</sys_updated_on>
+        <table>x_58872_needit_solicitud_de_compra</table>
+        <type>onChange</type>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>
